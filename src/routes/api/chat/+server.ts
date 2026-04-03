@@ -1,12 +1,17 @@
 import { error } from "@sveltejs/kit";
 import type { RequestHandler } from "./$types";
+import { env } from "$env/dynamic/private";
 
 export const POST: RequestHandler = async ({ request }) => {
   try {
     const { messages } = await request.json();
 
-    // Call your local Ollama instance
-    const response = await fetch("http://localhost:11434/api/chat", {
+    if (!env.OLLAMA_URL) {
+      throw error(500, "OLLAMA_URL environment variable is not configured");
+    }
+
+    // Call Ollama instance
+    const response = await fetch(`${env.OLLAMA_URL}/api/chat`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
