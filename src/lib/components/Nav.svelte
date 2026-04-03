@@ -1,10 +1,14 @@
+<script>
+  import { resolve } from "$app/paths";
+</script>
+
 <header>
   <h1>My AI App</h1>
   <nav>
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/chat">AI Chat</a></li>
-      <li><a href="/demo">Auth Demo</a></li>
+      <li><a href={resolve("/demo/better-auth")}>Auth Demo</a></li>
     </ul>
   </nav>
 </header>
