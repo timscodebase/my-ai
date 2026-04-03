@@ -1,0 +1,57 @@
+{
+  "name": "my-ai",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vp dev",
+    "build": "vp build",
+    "preview": "vp preview",
+    "prepare": "vp config && svelte-kit sync || echo ''",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "test:unit": "vp test",
+    "test": "npm run test:unit -- --run",
+    "db:push": "drizzle-kit push",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "auth:schema": "better-auth generate --config src/lib/server/auth.ts --output src/lib/server/db/auth.schema.ts --yes",
+    "format": "pnpx @biomejs/biome format --write",
+    "lint": "pnpx @biomejs/biome lint --write",
+    "biome:check": "pnpx @biomejs/biome check --write"
+  },
+  "devDependencies": {
+    "@better-auth/cli": "~1.4.21",
+    "@biomejs/biome": "2.4.10",
+    "@libsql/client": "^0.17.0",
+    "@sveltejs/adapter-vercel": "^6.3.1",
+    "@sveltejs/kit": "^2.50.2",
+    "@sveltejs/vite-plugin-svelte": "^6.2.4",
+    "@types/node": "^24",
+    "better-auth": "~1.4.21",
+    "drizzle-kit": "^0.31.8",
+    "drizzle-orm": "^0.45.1",
+    "playwright": "^1.58.2",
+    "svelte": "^5.54.0",
+    "svelte-check": "^4.4.2",
+    "typescript": "^5.9.3",
+    "vite": "npm:@voidzero-dev/vite-plus-core@latest",
+    "vite-plugin-devtools-json": "^1.0.0",
+    "vite-plus": "latest",
+    "vitest": "npm:@voidzero-dev/vite-plus-test@latest",
+    "vitest-browser-svelte": "^2.0.2"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "pnpm": {
+    "overrides": {
+      "vite": "npm:@voidzero-dev/vite-plus-core@latest",
+      "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
+    },
+    "onlyBuiltDependencies": [
+      "@prisma/client",
+      "better-sqlite3",
+      "esbuild"
+    ]
+  }
+}

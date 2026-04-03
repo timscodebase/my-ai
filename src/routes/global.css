@@ -1,0 +1,25 @@
+:root {
+  --color-background: #0f111a;
+  --color-text: #e2e8f0;
+  --color-primary: #3b82f6;
+
+  --gap: 1rem;
+  --spacing: var(--gap);
+  --border-radius: 0.5rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-size: 1rem;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
